@@ -41,15 +41,15 @@ module Spree
       provider.capture(money, charge_id, gateway_options)
     end
 
-    def credit(money, charge_id, gateway_options)
+    def credit(money, charge_id, gateway_options = {})
       provider.refund(money, charge_id, {})
     end
 
-    def void(charge_id, gateway_options)
+    def void(charge_id, gateway_options = {})
       provider.void(charge_id, {})
     end
 
-    def cancel(charge_id, gateway_options)
+    def cancel(charge_id, gateway_options = {})
       provider.void(charge_id, {})
     end
 
